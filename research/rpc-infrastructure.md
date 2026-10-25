@@ -61,13 +61,14 @@ request rather than a dependency.
 
 ## 3. Current State
 
-### 3.1 What is documented
+### 3.1 What is documented or directly observable at the endpoint
 
 | Property | Mainnet | Testnet | Source |
 |---|---|---|---|
 | Base URL | `https://api.mainnet.minepi.com` | `https://api.testnet.minepi.com` | `S-60`, `S-61` |
 | Protocol | Horizon-compatible (Stellar tooling works) | same | `S-05` |
-| Network passphrase | — | `Pi Testnet` | `S-05` |
+| Network passphrase | `Pi Network` (measured) | `Pi Testnet` (measured) | `M-04` |
+| Horizon build reported | `28.0.1-a70eb47f…` · `stellar-core 28.0.1` | `pi-horizon-28.0.1-d8f98fd` · `v28.0.1` | `M-05` |
 | Auth | None for read paths (as used by public examples) | same | `S-05` |
 | Response format | Horizon JSON | same | `S-05` |
 
@@ -80,7 +81,7 @@ request rather than a dependency.
 | Status page | **Not found** | Same |
 | Incident log | **Not found** | Same |
 | Maintenance windows | **Not found** | Same |
-| Data retention (how far back history goes) | **Not found** | Same |
+| Documented data-retention policy (how far back history goes) | **Not found** | Same |
 | Whether Mainnet and Testnet share infrastructure | **Not found** | Same |
 | Whether a CDN or regional edge exists | **Not found** | Same |
 
@@ -88,13 +89,18 @@ request rather than a dependency.
 > page this repository has not seen. The claim is precisely: *a developer reading the public docs on 2026-10-25
 > would not learn these.* That is a documentation gap, and it is fixable by adding a page.
 
+`FACT` — One property above has a partial answer that does not depend on documentation: both endpoints report
+`history_elder_ledger = 2` (`M-04`), which indicates ingestion starts at the first ledger. No policy states a
+retention period, and whether every ledger remains retrievable — or at what cost — is untested.
+
 ### 3.3 What is indirectly observable
 
 | Observable | How | Caveat |
 |---|---|---|
 | Current ledger sequence | `GET /ledgers?order=desc&limit=1` | Public |
 | Ledger close time | Latest ledger's `closed_at` | Public |
-| `protocol_version` | `GET /` | Public (`M-01` observed `28`) |
+| `protocol_version` | `GET /` | Public (`M-01` observed `28`; `M-04` re-observed it) |
+| Earliest ingested ledger | `history_elder_ledger` in `GET /` | Says where ingestion starts, not that every ledger is retrievable |
 | Base fee / fee stats | `GET /fee_stats` | Public |
 | Round-trip latency | Timed `GET /` | Vantage-point dependent |
 | Error responses | Status codes + body | Cannot distinguish throttle from fault without headers |
@@ -249,7 +255,9 @@ specification, the specification is wrong and the dashboard is decoration.
 
 1. Are Mainnet and Testnet endpoints on shared infrastructure? (`OQ-002`)
 2. Do responses carry rate-limit headers that this repository has not observed?
-3. What is the historical retention of `GET /ledgers`? Affects any indexer design.
+3. What is the historical retention of `GET /ledgers`? `M-04` reports `history_elder_ledger = 2` on both
+   networks — ingestion appears to start at the first ledger — but whether every ledger is retrievable, and at
+   what cost, is untested. Affects any indexer design.
 4. What is a *normal* ledger close interval on Pi, and what variance is expected? Without a baseline, "lag" has
    no threshold.
 5. Is there a documented recommendation for client retry behaviour?
@@ -269,6 +277,8 @@ See [`RES-012`](open-questions.md).
 | `S-62` | Platform API base path | Official | pinned 2024-08-28 |
 | `S-04` | "Blockchain is the only source of truth" | Official | retrieved 2026-10-25 |
 | `M-01` | `protocol_version = 28` via live read | Measurement | 2026-10-18 |
+| `M-04` | Passphrases, protocol 28, `history_elder_ledger = 2` | Measurement | 2026-10-25 |
+| `M-05` | Horizon/core build identifiers per network | Measurement | 2026-10-25 |
 | `PR-001` | RPC monitoring standard | Proposal | 2026-10-25 |
 
 ---

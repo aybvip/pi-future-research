@@ -68,7 +68,7 @@ sha256sum mica.pdf
 
 | # | Source | URL | Published | Supports |
 |---|---|---|---|---|
-| S-20 | Open Network launch | <https://minepi.com/blog/open-network/> | 2025-02-20 | Firewall removed; CEX/onramp integrations |
+| S-20 | Open Network launch | <https://minepi.com/blog/open-network/> | post dated 2025-02-19 · launch 2025-02-20 | Firewall removed; CEX/onramp integrations; node Mainnet transition by invitation |
 | S-21 | Open Network launch date | <https://minepi.com/blog/open-network-launch-date/> | 2025-02 | Enclosed-Network firewall definition |
 | S-22 | Mainnet migrations roadmap & tokenomics | <https://minepi.com/blog/mainnet-migrations-roadmap-and-tokenomics/> | `unpinned` | Migration stages |
 | S-23 | Ecosystem token design on Mainnet | <https://minepi.com/blog/open-network-anniversary/#ecosystem-token-design-mainnet> | 2026-02-20 | Ecosystem tokens live on Mainnet |
@@ -128,7 +128,7 @@ Quoted as reported. This repository has **not** independently audited any of the
 | Pi Node runners | "420,000+" | S-31 | 2026-08-27 | Not verifiable from public data |
 | Distributed-compute test participants | 5 volunteer Nodes | S-29 | 2026-08-14 | Not verifiable from public data |
 | App Studio creation price (pre-change) | 0.25 Pi create / 0.25 Pi edit | S-30 | 2026-08-17 | Price list is public |
-| Protocol version on Mainnet | 28 | Measured, see §3 | 2026-10-18 | **Yes** — `GET /` on Horizon |
+| Protocol version on Mainnet | 28 | Measured, see §3 (`M-01`, re-observed in `M-04`) | 2026-10-18 · 2026-10-25 | **Yes** — `GET /` on Horizon |
 
 > **Rule:** "official claim" and "verified fact" are different things. A number in this table is an official
 > claim *about* the network, not a measurement *of* the network.
@@ -142,9 +142,17 @@ Quoted as reported. This repository has **not** independently audited any of the
 | M-01 | Mainnet `protocol_version = 28` | Live read of Horizon root endpoint | 2026-10-18 | [`pi-fungibility`](https://github.com/aybvip/pi-fungibility) · `docs/PRIOR-ART.md` |
 | M-02 | No per-unit origin field on native Pi payments | Enumerating keys of live payment records | 2026-10-18 | Same repository · `examples/provenance-check.mjs` |
 | M-03 | RPC probe methodology (proposed, not yet run at scale) | See `PR-001` | planned | [`PR-001`](proposals/proposal-001-rpc-monitoring.md) |
+| M-04 | Mainnet and Testnet root properties: passphrases `Pi Network` / `Pi Testnet`; `current_protocol_version = 28` on both; `history_elder_ledger = 2` on both | Live `GET /` on S-60 and S-61 | 2026-10-25 | This repository · review pass |
+| M-05 | Build identifiers differ by network: Mainnet `horizon_version 28.0.1-a70eb47f76985d372de3e59f4d75c7f8542752f7`, `core_version stellar-core 28.0.1 (947aad8…)`; Testnet `horizon_version pi-horizon-28.0.1-d8f98fd`, `core_version v28.0.1` | Live `GET /` on S-60 and S-61 | 2026-10-25 | This repository · review pass |
 
-`ANALYSIS` — M-01 and M-02 are reproducible by anyone with `curl`. They are the only measurements in this
-repository that meet the "a stranger can re-run it" bar. Everything else is either quoted or reasoned.
+`ANALYSIS` — M-01, M-02, M-04, and M-05 are reproducible by anyone with `curl`. They are the only measurements
+in this repository that meet the "a stranger can re-run it" bar. Everything else is either quoted or reasoned.
+
+> **What M-05 does and does not show.** It records the *strings the public endpoint reports*. Mainnet reports an
+> unbranded Horizon build and a `stellar-core` version string; Testnet reports a `pi-horizon` branded build. That
+> is consistent with, but not proof of, Mainnet running a build close to upstream Horizon. A build string can be
+> overridden, and nothing here observes consensus rules. Do not read this row as "Pi Mainnet is unmodified
+> Stellar" — only as "the public build identifiers differ between the two networks, in this direction".
 
 ---
 
@@ -157,10 +165,12 @@ repository that meet the "a stranger can re-run it" bar. Everything else is eith
 | S-72 | Third-party news and video explainers | Not used for any claim | Unverifiable and often derivative |
 
 `ANALYSIS` — The Protocol 28 date is a good worked example of why labelling matters. M-01 shows
-`protocol_version = 28` on **2026-10-18**. A secondary summary reports "Mainnet completed the Protocol 28
-upgrade" on **2026-10-23**. Both can be true if the version became readable before the upgrade was formally
-announced as complete — but this repository cannot resolve it, so it records the conflict instead of
-choosing the tidier story.
+`protocol_version = 28` on **2026-10-18**, and M-04 re-observes the same value on **2026-10-25**. A secondary
+summary reports "Mainnet completed the Protocol 28 upgrade" on **2026-10-23**. All three can be true if the
+version became readable before the upgrade was formally announced as complete — but this repository cannot
+resolve it, so it records the conflict instead of choosing the tidier story. What the two measurements do
+establish is narrower and safe: *protocol 28 was observable on Mainnet on both dates, so any claim that it was
+first reachable on 2026-10-23 is wrong.*
 
 ---
 

@@ -21,8 +21,10 @@ A document is not done when it is written. It is done when all four hold:
 | **G3 — Falsifiable** | Does it say what evidence would overturn it? | Unfalsifiable essays |
 | **G4 — Adoptable** | Could one developer act on it this month? | Research nobody can use |
 
-Documents currently meeting all four: **17 of 17** at initial publication. That will stop being true as
-sources drift — which is what the review cycle below is for.
+Documents meeting all four: **17 of 17** at initial publication. That is a claim about the *first draft*, not a
+permanent certificate: the 2026-10-25 review pass found six corrections, including a mis-stated network
+passphrase in two documents, one mis-classified status, and one wrong cross-reference. Sources also drift —
+which is what the review cycle below is for.
 
 ---
 
@@ -45,6 +47,7 @@ Goal: turn `draft` into `review`, then `stable`, with at least one outside revie
 
 | Work item | Owner | Target | Status |
 |---|---|---|---|
+| Independent research-quality review of all 17 documents | maintainers | 2026-10-25 | **done** — six corrections; see change log |
 | Open one public comment thread per document | maintainers | 2026-11-15 | planned |
 | Independent re-run of the RPC probe (`PR-001`) | volunteer | 2026-12-01 | planned |
 | Verify every `S-nn` row: does the URL still say what we claim? | volunteer | 2026-12-15 | planned |
@@ -171,8 +174,20 @@ Recorded so that the scope does not creep by accident:
    in progress is visible.
 4. Rejected items are listed with a reason. Silence is not a decision.
 
+### Candidate studies (recorded before they exist)
+
+Per rule 3 above, work in progress is visible. These three are **candidates**: no author has committed, so they
+have no `RES-` ID yet. Each closes a gap identified in the 2026-10-25 review.
+
+| Working title | Gap it closes | First step |
+|---|---|---|
+| Ledger cadence and finality on Pi | No public baseline for close intervals, so "lag" has no threshold | Sample 1,000 consecutive ledgers; publish the interval distribution |
+| Pi Horizon divergences from upstream Stellar | Unknown whether Stellar docs, SDKs, and indexers transfer (`M-05` is only a seed) | Build an endpoint/behaviour matrix for both networks |
+| PiRC1 allocation stress test | No public quantitative analysis of PiPower tiers, dilution, or liquidity locks | Simulate Design 1 and Design 2 under stated assumptions |
+
 ### Change log for this file
 
 | Date | Change |
 |---|---|
 | 2026-10-25 | Initial roadmap: Phase 0 complete, Phases 1–3 planned |
+| 2026-10-25 | Review pass complete: `M-04`/`M-05` added; passphrase, node-status, cross-reference and date corrections; three candidate studies recorded |

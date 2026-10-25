@@ -65,7 +65,7 @@ arrive on their own cadence; legibility does not arrive unless someone builds it
 
 | Layer | Component | Evidence | Date |
 |---|---|---|---|
-| L0 | Stellar-derived Layer 1; `networkPassphrase = "Pi Testnet"`; same `@stellar/stellar-sdk` | `S-05`, `S-60`, `S-61` | retrieved 2026-10-25 |
+| L0 | Stellar-derived Layer 1; Mainnet `networkPassphrase = "Pi Network"` · Testnet `"Pi Testnet"`; same `@stellar/stellar-sdk` | `S-05`, `M-04` | documented; measured 2026-10-25 |
 | L0 | Mainnet `protocol_version = 28` observable | `M-01` | measured 2026-10-18 |
 | L1 | Horizon-compatible endpoints for Mainnet and Testnet | `S-60`, `S-61` | retrieved 2026-10-25 |
 | L1 | Official block explorer | `S-36` | retrieved 2026-10-25 |

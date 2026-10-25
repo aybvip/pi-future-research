@@ -181,7 +181,7 @@ UI change with an outsized effect on informed consent.
 | Constraint | Consequence |
 |---|---|
 | Soroban state has archival / time-to-live semantics | Long-lived subscription state needs a plan for restoration; not a Pi-specific issue but must be documented per contract |
-| Token amounts are `i128` scalars | No per-unit metadata; see [`SOURCES.md`](../SOURCES.md) §1.3 note on the token interface |
+| Token amounts are `i128` scalars | No per-unit metadata; see [`SOURCES.md`](../SOURCES.md) §3 `M-02` and §5 |
 | Contracts can only act on what they are given | A contract cannot observe anything the ledger does not record |
 | Upgradeability is a design choice per contract | Must be disclosed, because it changes the trust model entirely |
 

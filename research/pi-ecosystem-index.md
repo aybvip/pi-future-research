@@ -146,7 +146,7 @@ Four rules do all the work.
 | L4 | App Studio | product | `live-mainnet` | `S-30` |
 | L4 | PiOS + registry | primitive | `live-mainnet` | `S-13` |
 | L4 | Demo app (`demo.pi`) | primitive | `live-mainnet` | `S-11` |
-| L5 | Pi Node 0.6.x | product | `live-mainnet` | `S-29` |
+| L5 | Pi Node 0.6.x | product | `beta-gated` (Mainnet transition by invitation; anyone may technically run a node) | `S-29`, `S-20` |
 | L5 | SoloHost | runtime | `beta-gated` (beta) | `S-31` |
 | L5 | Distributed compute | capability | `poc` | `S-29` |
 | L6 | PiRC1 Launchpad | mechanism | `live-testnet` | `S-24` |
@@ -250,6 +250,7 @@ See [`RES-012`](open-questions.md).
 | `S-09` | SDK 2.0.0 | Official | 2026-03-19 |
 | `S-11` | Developer landing page | Official | retrieved 2026-10-25 |
 | `S-13` | PiOS registry | Official | retrieved 2026-10-25 |
+| `S-20` | Open Network launch; node Mainnet transition by invitation | Official | 2025-02-20 |
 | `S-23` | Ecosystem tokens on Mainnet | Official | 2026-02-20 |
 | `S-24` | Launchpad on Testnet; DEX on Testnet | Official | 2026-03-19 |
 | `S-26` | Subscription contract + audit status | Official | 2026-04-17 |
