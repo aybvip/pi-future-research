@@ -1,0 +1,55 @@
+{
+  "schema": "pi-ledger-header-check/1",
+  "generated_by": "scripts/verify-ledger-header.mjs",
+  "generated_at": "2026-10-25T21:34:34.610Z",
+  "source_dataset_sha256": "871e35ea3d6bad4dc08ac87d3c3e96166a67b28e93b611b11440eacbb40c52e5",
+  "endpoint": "https://api.mainnet.minepi.com",
+  "sampled_sequences": [
+    29405159,
+    29405658,
+    29406158
+  ],
+  "all_checks_passed": true,
+  "results": [
+    {
+      "sequence": 29405159,
+      "closed_at": "2026-10-25T20:11:50Z",
+      "closed_at_unix": 1792959110,
+      "header_xdr_close_time_unix": 1792959110,
+      "header_xdr_close_time_iso": "2026-10-25T20:11:50.000Z",
+      "hash": "6435b6d6ac52d47a155e534181af6bfd23a37c8a63cc54f22dcad6391aa4d536",
+      "dataset_hash_matches": true,
+      "dataset_prev_hash_matches": true,
+      "dataset_closed_at_matches": true,
+      "header_close_time_matches_closed_at": true,
+      "header_xdr_bytes": 428
+    },
+    {
+      "sequence": 29405658,
+      "closed_at": "2026-10-25T20:53:25Z",
+      "closed_at_unix": 1792961605,
+      "header_xdr_close_time_unix": 1792961605,
+      "header_xdr_close_time_iso": "2026-10-25T20:53:25.000Z",
+      "hash": "436300ea91cde5527dbc8c7cf0179d17e024bb8d2798ecd32a61736efa4dbb16",
+      "dataset_hash_matches": true,
+      "dataset_prev_hash_matches": true,
+      "dataset_closed_at_matches": true,
+      "header_close_time_matches_closed_at": true,
+      "header_xdr_bytes": 428
+    },
+    {
+      "sequence": 29406158,
+      "closed_at": "2026-10-25T21:35:05Z",
+      "closed_at_unix": 1792964105,
+      "header_xdr_close_time_unix": 1792964105,
+      "header_xdr_close_time_iso": "2026-10-25T21:35:05.000Z",
+      "hash": "cfde791543c75befd31d99c8fd2687ab50c2ddfa11d0360e784592b9a10a5e7f",
+      "dataset_hash_matches": true,
+      "dataset_prev_hash_matches": true,
+      "dataset_closed_at_matches": true,
+      "header_close_time_matches_closed_at": true,
+      "header_xdr_bytes": 428
+    }
+  ],
+  "note": "This checks sampled ledgers, not the whole dataset. It shows that, for those samples, the committed record matches the live API and closed_at equals the close time encoded in the ledger header itself. It does not establish a protocol guarantee or an SLA."
+}

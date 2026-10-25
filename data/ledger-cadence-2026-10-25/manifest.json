@@ -1,0 +1,50 @@
+{
+  "schema": "pi-ledger-cadence/1",
+  "network": "mainnet",
+  "endpoint": "https://api.mainnet.minepi.com/ledgers",
+  "query": {
+    "order": "desc",
+    "limit": 200
+  },
+  "generated_by": "scripts/fetch-ledgers.mjs",
+  "collection_started_at": "2026-10-25T21:34:28.836Z",
+  "collection_finished_at": "2026-10-25T21:34:33.007Z",
+  "server_date_first_page": "Sun, 25 Oct 2026 21:34:23 GMT",
+  "server_date_last_page": "Sun, 25 Oct 2026 21:35:07 GMT",
+  "first_page_duration_ms": 1195,
+  "requested_count": 1000,
+  "collected_count": 1000,
+  "pages": 5,
+  "newest_sequence": 29406158,
+  "oldest_sequence": 29405159,
+  "newest_closed_at": "2026-10-25T21:35:05Z",
+  "oldest_closed_at": "2026-10-25T20:11:50Z",
+  "chain_span_seconds": 4995,
+  "local_clock_lag_estimate_seconds": 32,
+  "clock_note": "The client clock ran about this many seconds behind the newest ledger closed_at during collection; the endpoint HTTP Date headers also varied by tens of seconds between pages. Collection timestamps above are client-clock values and are not used for interval computation. The chain timeline is anchored to closed_at.",
+  "collection_anchor": {
+    "oldest_ledger_closed_at": "2026-10-25T20:11:50Z",
+    "newest_ledger_closed_at": "2026-10-25T21:35:05Z",
+    "chain_span_seconds": 4995
+  },
+  "dataset_file": "ledgers.jsonl",
+  "dataset_sha256": "871e35ea3d6bad4dc08ac87d3c3e96166a67b28e93b611b11440eacbb40c52e5",
+  "dataset_bytes": 341677,
+  "fields": [
+    "sequence",
+    "closed_at",
+    "protocol_version",
+    "successful_transaction_count",
+    "failed_transaction_count",
+    "operation_count",
+    "tx_set_operation_count",
+    "hash",
+    "prev_hash"
+  ],
+  "notes": [
+    "Records are stored newest first, exactly as returned by Horizon with order=desc.",
+    "Only closed ledgers are observable through this endpoint; no mempool or pending transaction data is included.",
+    "closed_at is second-granularity UTC ISO 8601, so close intervals are integer seconds.",
+    "This is a single collection window from a single vantage point; it is not a continuous monitor and not an SLA measurement."
+  ]
+}

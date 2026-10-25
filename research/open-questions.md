@@ -79,6 +79,10 @@ known in 2026.
 | `OQ-006` | What confirmation depth should be treated as final for a Pi payment? | Delivery timing and risk both depend on it | Official guidance, or observed ledger finality behaviour | **Blocking** | 2026-10-25 | [`RES-006`](security-and-trust.md) §5 |
 | `OQ-019` | Does the official explorer expose a documented public data API? | Duplicating it would be waste; missing it is a gap | A docs page, or an official statement | Medium | 2026-10-25 | [`RES-008`](blockchain-explorer.md) |
 
+> **`OQ-006` is not closed by `RES-013`.** The cadence study measures ledger-close intervals, not confirmation
+> depth or reorg behaviour. A 5-second close interval is an input to how long inclusion *might* take; it is not
+> a finality policy. See [`RES-013`](ledger-cadence.md) §3.4.
+
 ### §4.2 Platform, verification and access
 
 | ID | Question | Why it matters | Would be answered by | Severity | Opened | Blocks |

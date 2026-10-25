@@ -1,0 +1,218 @@
+{
+  "schema": "pi-ledger-cadence-stats/1",
+  "generated_by": "scripts/ledger-cadence.mjs",
+  "generated_at": "2026-10-25T21:34:33.166Z",
+  "source": {
+    "directory": "data/ledger-cadence-2026-10-25",
+    "dataset_file": "ledgers.jsonl",
+    "manifest_file": "manifest.json",
+    "dataset_sha256": "871e35ea3d6bad4dc08ac87d3c3e96166a67b28e93b611b11440eacbb40c52e5",
+    "manifest_sha256": "7fd16a08b03026cc6c2887c50a96caa84125e8e2c48a3a8e49b3ac937d918a57",
+    "dataset_bytes": 341677
+  },
+  "network": "mainnet",
+  "collection": {
+    "started_at": "2026-10-25T21:34:28.836Z",
+    "finished_at": "2026-10-25T21:34:33.007Z",
+    "server_date_first_page": "Sun, 25 Oct 2026 21:34:23 GMT",
+    "server_date_last_page": "Sun, 25 Oct 2026 21:35:07 GMT",
+    "pages": 5,
+    "requested_count": 1000,
+    "collected_count": 1000,
+    "newest_sequence": 29406158,
+    "oldest_sequence": 29405159,
+    "newest_closed_at": "2026-10-25T21:35:05Z",
+    "oldest_closed_at": "2026-10-25T20:11:50Z",
+    "local_clock_lag_estimate_seconds": 32,
+    "clock_note": "The client clock ran about this many seconds behind the newest ledger closed_at during collection; the endpoint HTTP Date headers also varied by tens of seconds between pages. Collection timestamps above are client-clock values and are not used for interval computation. The chain timeline is anchored to closed_at."
+  },
+  "coverage": {
+    "ledger_count": 1000,
+    "interval_count": 999,
+    "first_sequence": 29405159,
+    "first_closed_at": "2026-10-25T20:11:50Z",
+    "last_sequence": 29406158,
+    "last_closed_at": "2026-10-25T21:35:05Z",
+    "chain_span_seconds": 4995,
+    "chain_span_hours": 1.388,
+    "sum_of_intervals_seconds": 4995,
+    "sum_of_intervals_matches_chain_span": true,
+    "observation_note": "Closed ledgers only, from one vantage point, over one contiguous sequence window. This is not a continuous monitor."
+  },
+  "cadence": {
+    "min_seconds": 5,
+    "max_seconds": 5,
+    "mean_seconds": 5,
+    "median_seconds": 5,
+    "p25_seconds": 5,
+    "p75_seconds": 5,
+    "p90_seconds": 5,
+    "p95_seconds": 5,
+    "p99_seconds": 5,
+    "stddev_seconds": 0,
+    "iqr_seconds": 0,
+    "mad_seconds": 0,
+    "mode_seconds": [
+      5
+    ],
+    "mode_count": 999,
+    "distinct_interval_seconds": [
+      5
+    ],
+    "single_valued": true,
+    "histogram_seconds": {
+      "5": 999
+    },
+    "max_gap": {
+      "from_sequence": 29405159,
+      "to_sequence": 29405160,
+      "from_closed_at": "2026-10-25T20:11:50Z",
+      "to_closed_at": "2026-10-25T20:11:55Z",
+      "interval_seconds": 5
+    },
+    "min_gap": {
+      "from_sequence": 29405159,
+      "to_sequence": 29405160,
+      "from_closed_at": "2026-10-25T20:11:50Z",
+      "to_closed_at": "2026-10-25T20:11:55Z",
+      "interval_seconds": 5
+    },
+    "top_gaps": [
+      {
+        "from_sequence": 29405159,
+        "to_sequence": 29405160,
+        "from_closed_at": "2026-10-25T20:11:50Z",
+        "to_closed_at": "2026-10-25T20:11:55Z",
+        "interval_seconds": 5
+      },
+      {
+        "from_sequence": 29405160,
+        "to_sequence": 29405161,
+        "from_closed_at": "2026-10-25T20:11:55Z",
+        "to_closed_at": "2026-10-25T20:12:00Z",
+        "interval_seconds": 5
+      },
+      {
+        "from_sequence": 29405161,
+        "to_sequence": 29405162,
+        "from_closed_at": "2026-10-25T20:12:00Z",
+        "to_closed_at": "2026-10-25T20:12:05Z",
+        "interval_seconds": 5
+      },
+      {
+        "from_sequence": 29405162,
+        "to_sequence": 29405163,
+        "from_closed_at": "2026-10-25T20:12:05Z",
+        "to_closed_at": "2026-10-25T20:12:10Z",
+        "interval_seconds": 5
+      },
+      {
+        "from_sequence": 29405163,
+        "to_sequence": 29405164,
+        "from_closed_at": "2026-10-25T20:12:10Z",
+        "to_closed_at": "2026-10-25T20:12:15Z",
+        "interval_seconds": 5
+      },
+      {
+        "from_sequence": 29405164,
+        "to_sequence": 29405165,
+        "from_closed_at": "2026-10-25T20:12:15Z",
+        "to_closed_at": "2026-10-25T20:12:20Z",
+        "interval_seconds": 5
+      },
+      {
+        "from_sequence": 29405165,
+        "to_sequence": 29405166,
+        "from_closed_at": "2026-10-25T20:12:20Z",
+        "to_closed_at": "2026-10-25T20:12:25Z",
+        "interval_seconds": 5
+      },
+      {
+        "from_sequence": 29405166,
+        "to_sequence": 29405167,
+        "from_closed_at": "2026-10-25T20:12:25Z",
+        "to_closed_at": "2026-10-25T20:12:30Z",
+        "interval_seconds": 5
+      },
+      {
+        "from_sequence": 29405167,
+        "to_sequence": 29405168,
+        "from_closed_at": "2026-10-25T20:12:30Z",
+        "to_closed_at": "2026-10-25T20:12:35Z",
+        "interval_seconds": 5
+      },
+      {
+        "from_sequence": 29405168,
+        "to_sequence": 29405169,
+        "from_closed_at": "2026-10-25T20:12:35Z",
+        "to_closed_at": "2026-10-25T20:12:40Z",
+        "interval_seconds": 5
+      }
+    ]
+  },
+  "transactions": {
+    "successful_transaction_count_total": 6236,
+    "failed_transaction_count_total": 12971,
+    "operation_count_total": 12547,
+    "empty_ledger_count": 293,
+    "empty_ledger_share": 0.293,
+    "mean_transactions_per_ledger": 19.207,
+    "mean_operations_per_ledger": 12.547,
+    "note": "Descriptive context only; this dataset is too short to establish a cadence/load relationship."
+  },
+  "anomalies": {
+    "rule_slow_close": "interval_seconds >= 3 * median_seconds",
+    "slow_close_threshold_seconds": 15,
+    "slow_close_count": 0,
+    "slow_closes": [],
+    "gaps_ge_30s_count": 0,
+    "gaps_ge_30s": [],
+    "non_positive_interval_count": 0,
+    "duplicate_closed_at_count": 0,
+    "sequence_gap_count": 0,
+    "hash_link_break_count": 0,
+    "timestamp_problem_count": 0,
+    "protocol_versions": {
+      "28": 1000
+    },
+    "protocol_version_changes": false
+  },
+  "definitions": {
+    "interval": "Difference between consecutive closed_at values for ledgers with adjacent sequence numbers, in ascending order.",
+    "time_precision": "closed_at is second-granularity UTC ISO 8601; intervals are integer seconds.",
+    "percentile": "Nearest-rank: sorted[ceil(p * n) - 1], clamped to [1, n].",
+    "median": "Average of the two middle values when n is even.",
+    "stddev": "Population standard deviation (divide by n).",
+    "slow_close_anomaly": "An interval at least three times the median. Exploratory rule, not an SLA threshold."
+  },
+  "validation": {
+    "dataset_sha256_verified": true,
+    "dataset_sha256": "871e35ea3d6bad4dc08ac87d3c3e96166a67b28e93b611b11440eacbb40c52e5",
+    "manifest_sha256": "7fd16a08b03026cc6c2887c50a96caa84125e8e2c48a3a8e49b3ac937d918a57",
+    "line_count_matches_manifest": true,
+    "sequence_contiguous": true,
+    "expected_ledger_count_in_range": 1000,
+    "actual_ledger_count": 1000,
+    "missing_sequence_count": 0,
+    "missing_sequences": [],
+    "hash_chain_intact": true,
+    "hash_link_break_count": 0,
+    "hash_link_breaks": [],
+    "timestamps_valid": true,
+    "timestamp_problem_count": 0,
+    "timestamp_problems": [],
+    "closed_at_strictly_increasing": true,
+    "non_positive_interval_count": 0,
+    "non_positive_intervals": [],
+    "duplicate_closed_at_count": 0,
+    "duplicate_closed_at": [],
+    "adjacent_pair_count": 999,
+    "non_adjacent_pair_count": 0,
+    "non_adjacent_pairs": [],
+    "all_closed_at_on_5s_boundary": true,
+    "off_5s_boundary_count": 0,
+    "off_5s_boundary": [],
+    "sum_of_intervals_equals_chain_span": true
+  },
+  "warnings": []
+}

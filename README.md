@@ -2,8 +2,8 @@
 
 **Open, dated, falsifiable research on where the Pi Network platform could go next — and what would have to be true for each direction to work.**
 
-[![Docs](https://img.shields.io/badge/content-12%20studies%20%2B%205%20proposals-2ea44f)](#document-map)
-[![Evidence](https://img.shields.io/badge/evidence-4%20reproducible%20measurements-blue)](#live-measurements)
+[![Docs](https://img.shields.io/badge/content-13%20studies%20%2B%205%20proposals-2ea44f)](#document-map)
+[![Evidence](https://img.shields.io/badge/evidence-5%20reproducible%20measurements-blue)](#live-measurements)
 [![Status](https://img.shields.io/badge/status-living%20document-lightgrey)](#maintenance)
 [![License](https://img.shields.io/badge/license-CC%20BY%204.0-lightgrey)](LICENSE)
 [![Not affiliated](https://img.shields.io/badge/affiliation-unofficial-orange)](#disclaimer)
@@ -23,16 +23,17 @@ generative app builder.
 What it does **not** have in public is a large body of **written, dated, falsifiable research** about how
 those pieces fit together, where they break, and what would have to be true for each next step to work.
 
-This repository is that body of writing. It is deliberately **document-heavy and code-light**: 12 research
-documents and 5 RFC-style proposals, built so that a disagreement can be settled with evidence rather than
-with volume.
+This repository is that body of writing. It is deliberately **document-heavy, with a small reproducible
+measurement layer**: 13 research documents and 5 RFC-style proposals, built so that a disagreement can be
+settled with evidence rather than with volume.
 
-**Three things you can do with it:**
+**Four things you can do with it:**
 
 | Goal | Start with | What you get |
 |---|---|---|
 | Ship a Pi app that handles money correctly | [`RES-006`](research/security-and-trust.md) → [`PR-002`](proposals/proposal-002-developer-standards.md) | 15 mandatory controls, conformance tests, a manifest format |
-| Stop arguing about reliability and measure it | [`RES-002`](research/rpc-infrastructure.md) → [`PR-001`](proposals/proposal-001-rpc-monitoring.md) | Metric definitions, ledger-lag model, a probe spec anyone can run |
+| Stop arguing about reliability and measure it | [`RES-002`](research/rpc-infrastructure.md) → [`RES-013`](research/ledger-cadence.md) → [`PR-001`](proposals/proposal-001-rpc-monitoring.md) | Metric definitions, a measured cadence baseline, a probe spec anyone can run |
+| See how fast Pi actually closes ledgers | [`RES-013`](research/ledger-cadence.md) → [dataset](data/ledger-cadence-2026-10-25/) | 1,000 measured ledgers, interval statistics, three reproducible scripts |
 | Challenge a claim with evidence | [`RES-012`](research/open-questions.md) | 27 numbered open questions, each answerable |
 
 ---
@@ -42,7 +43,7 @@ with volume.
 | You are… | Read, in order | Because |
 |---|---|---|
 | **An app developer shipping payments** | [`RES-006`](research/security-and-trust.md) → [`RES-005`](research/developer-tools.md) → [`PR-002`](proposals/proposal-002-developer-standards.md) | The failure modes are boring and expensive; the controls are concrete |
-| **Building an indexer or infrastructure** | [`RES-002`](research/rpc-infrastructure.md) → [`RES-008`](research/blockchain-explorer.md) → [`PR-001`](proposals/proposal-001-rpc-monitoring.md) | What is documented, what is only observable, and what nobody publishes |
+| **Building an indexer or infrastructure** | [`RES-002`](research/rpc-infrastructure.md) → [`RES-013`](research/ledger-cadence.md) → [`RES-008`](research/blockchain-explorer.md) → [`PR-001`](proposals/proposal-001-rpc-monitoring.md) | What is documented, what is only observable, and what nobody publishes |
 | **Launching or analysing a token** | [`RES-003`](research/launchpad-opportunities.md) → [`PR-004`](proposals/proposal-004-launchpad-transparency.md) | How PiRC1 routes proceeds, and what a disclosure can and cannot verify |
 | **Running nodes or building on compute** | [`RES-007`](research/decentralized-compute.md) → [`PR-005`](proposals/proposal-005-decentralized-services.md) | A five-node PoC is not a market; the difference is verification |
 | **A researcher or a skeptic** | [`RES-012`](research/open-questions.md) → [`SOURCES.md`](SOURCES.md) | The open-question register and the evidence registry, including what could not be verified |
@@ -57,9 +58,10 @@ If you have **ten minutes**: read [`VISION.md`](VISION.md), then the Executive S
 
 Most "Pi ecosystem" writing is either a directory or a forecast. This repository tries to be neither.
 
-1. **Measurements, not only quotations.** Four rows in [`SOURCES.md`](SOURCES.md) §3 were produced by reading
-   live endpoints, and anyone can re-run them with `curl`. See [Live measurements](#live-measurements).
-2. **"Not found" is a recorded result.** [`SOURCES.md`](SOURCES.md) §5 lists seven properties this repository
+1. **Measurements, not only quotations.** Five rows in [`SOURCES.md`](SOURCES.md) §3 are measurements rather
+   than quotations; one of them ships a 1,000-ledger dataset with a SHA-256, and anyone can re-run the
+   scripts. See [Live measurements](#live-measurements).
+2. **"Not found" is a recorded result.** [`SOURCES.md`](SOURCES.md) §5 lists the properties this repository
    could not verify. A document may say *we could not determine this*; it may not imply the opposite.
 3. **Proposals can fail a test.** Each one defines a negative or conformance test — for example, reorder
    [`PR-002`](proposals/proposal-002-developer-standards.md)'s payment steps so that delivery precedes on-chain
@@ -82,7 +84,17 @@ These are the rows a stranger can reproduce without trusting the author. Full me
 | `M-02` | No per-unit origin field on native Pi payments | 2026-10-18 | Provenance is not carried per unit at the ledger level | That no off-chain provenance exists |
 | `M-04` | Passphrases `Pi Network` / `Pi Testnet`; protocol 28 on both; `history_elder_ledger = 2` | 2026-10-25 | Mainnet and Testnet are separate networks; both report history from ledger 2 | That every historical ledger is retrievable at any cost |
 | `M-05` | Mainnet reports `28.0.1-a70eb47…` / `stellar-core 28.0.1`; Testnet reports `pi-horizon-28.0.1-d8f98fd` | 2026-10-25 | The two networks report different build identities | That Mainnet is unmodified Stellar — a build string is not a consensus proof |
+| `M-06` | [1,000 newest Mainnet ledgers](research/ledger-cadence.md) (29,405,159–29,406,158) | 2026-10-25 | 999/999 adjacent close intervals were exactly 5 s at ledger-header resolution; no sequence gaps, hash-link breaks, or slow closes in this window | That Pi always closes in 5 s, that 5 s is transaction finality, or that 5 s is an SLA |
 | `M-03` | A probe methodology, not yet run at scale | planned | — | — |
+
+**Ledger cadence, measured 2026-10-25 (`RES-013`):** 1,000 Mainnet ledgers covering
+**20:11:50Z → 21:35:05Z** (4,995 s, about 1.39 hours) produced **999 adjacent close intervals, all exactly
+5 seconds at ledger-header resolution**. Median = mean = p95 = p99 = minimum = maximum = 5 s; population
+standard deviation = 0. The sample had 0 sequence gaps, 0 `prev_hash`/`hash` breaks, 0 non-monotonic
+timestamps, and 0 intervals ≥ 3× the median. That is a property of this one window at the resolution the
+ledger header exposes — **not** an SLA, **not** a claim that Pi always closes in 5 s, and **not** a measurement
+of transaction finality.
+[Study](research/ledger-cadence.md) · [dataset](data/ledger-cadence-2026-10-25/) · [stats](data/ledger-cadence-2026-10-25/stats.json)
 
 Reproduce the cheapest one:
 
@@ -120,6 +132,7 @@ curl -s https://api.mainnet.minepi.com/ | grep -E 'network_passphrase|protocol_v
 | `RES-010` | [`ten-year-scenarios.md`](research/ten-year-scenarios.md) | 10 — Ten-year scenarios for the ecosystem |
 | `RES-011` | [`smart-contract-ecosystem.md`](research/smart-contract-ecosystem.md) | Soroban on Pi: what exists, what is missing |
 | `RES-012` | [`open-questions.md`](research/open-questions.md) | The open-question register (`OQ-nnn`) |
+| `RES-013` | [`ledger-cadence.md`](research/ledger-cadence.md) | Ledger cadence and finality, measured on 1,000 Mainnet ledgers |
 
 ### Proposals (`proposals/`)
 
@@ -176,8 +189,9 @@ A compressed, dated snapshot. Full quotes and pins are in [`SOURCES.md`](SOURCES
 | 10 | `60+ million` Pioneers claimed by the developer site | [minepi.com/developers](https://minepi.com/developers/) | retrieved 2026-10-25 |
 | 11 | Protocol version `28` observed on Mainnet via a live Horizon read, and re-observed 2026-10-25 | `M-01`, `M-04` | 2026-10-18 · 2026-10-25 |
 | 12 | MiCA whitepaper published; Pi described as the "native, fungible digital asset" | [PDF](https://minepi.com/wp-content/uploads/2025/11/MiCA-Whitepaper-Pi-1.pdf) | 2025-11-27 |
+| 13 | 1,000 consecutive Mainnet ledgers (29,405,159–29,406,158) closed at a uniform 5-second interval: 999/999 measured intervals = 5 s | `M-06`, [`RES-013`](research/ledger-cadence.md) | 2026-10-25 |
 
-Two of these deserve a warning label:
+These deserve a warning label:
 
 - **#11** — a secondary source reports the Protocol 28 Mainnet *upgrade completion* on 2026-10-23, which does
   not line up cleanly with `protocol_version = 28` reads on 2026-10-18 and 2026-10-25. Treat the completion
@@ -188,17 +202,21 @@ Two of these deserve a warning label:
   "live for users' money".
 - **#2** — a **design** published as an RFC is not a live token launch. The anniversary post describes the
   ecosystem-token design and the path to enabling creation on Mainnet; it does not show tokens trading there.
+- **#13** — a uniform 5-second cadence in one 1.39-hour window is not an SLA, not a claim about transaction
+  finality, and not evidence that gaps cannot occur. See [`RES-013`](research/ledger-cadence.md) §3.4.
 
 ---
 
-## The next three studies
+## The next studies
 
-These are not written yet. They are listed because each one would convert a current weakness — opinion,
-unmeasured behaviour, unexamined math — into something checkable. Open an issue if you want to take one.
+The ledger-cadence study from the 2026-10-25 review is now published as
+[`RES-013`](research/ledger-cadence.md): 1,000 ledgers, 999/999 intervals at 5 seconds at ledger-header
+resolution, with a hashed dataset and three scripts. The remaining two are not written yet. They are listed
+because each one would convert a current weakness — unmeasured behaviour or unexamined math — into something
+checkable. Open an issue if you want to take one.
 
 | Working title | Why it matters | First concrete step | Done when |
 |---|---|---|---|
-| **Ledger cadence and finality on Pi** | Every payment UX depends on what "confirmed" means; no public baseline exists for close intervals or variance, so "lag" has no threshold | Sample 1,000 consecutive ledgers, publish the interval distribution and gaps | A stranger can compute the same distribution from your raw data |
 | **How far Pi's Horizon diverges from upstream Stellar** | Determines whether Stellar docs, SDKs, and indexers transfer — the single most practical question for developers | Build an endpoint/behaviour matrix for both networks against upstream Horizon | Every difference is reproduced with a request and a response |
 | **A PiRC1 allocation stress test** | The Launchpad's Mainnet design is pending; there is no public quantitative analysis of PiPower tiers, dilution, or liquidity lockups | Simulate Design 1 and Design 2 under stated assumptions; publish the model and its inputs | A reader can change an assumption and see which conclusion survives |
 
@@ -210,7 +228,7 @@ Honest gaps, in order of how much they limit the repository:
 
 | Gap | Consequence | Effort to improve |
 |---|---|---|
-| No shipped datasets — the measurements are few and narrow | "Research" still reads as commentary in places | Medium |
+| Only one shipped dataset — a single 1.39-hour ledger window | The cadence baseline is dated and narrow; no long-run or incident coverage | Medium |
 | No reference implementation of any proposal | Proposals are reviewable but not yet runnable | Large |
 | English only | Excludes much of Pi's actual user base, including Arabic speakers | Medium |
 | One maintainer, zero independent contributors | Bus factor of one; no external review yet | Small (one review) |
@@ -227,7 +245,7 @@ Honest gaps, in order of how much they limit the repository:
 | Translate [`VISION.md`](VISION.md) and [`RES-006`](research/security-and-trust.md) into Arabic | Extends the audience the research is about | M |
 | Add a link-checker workflow | Catches the most common decay mode in a dated repository | S |
 | Answer one `OQ-nnn` with evidence | The register only compounds if questions close | M |
-| Measure ledger close intervals over 1,000 ledgers | Seeds the first study in the table above | M |
+| Extend [`RES-013`](research/ledger-cadence.md) to 7 days and publish daily windows | Turns one cadence snapshot into a distribution and tests whether 5 s is stable | M |
 
 ---
 
@@ -254,7 +272,7 @@ Each document carries a header with `status`, `last_reviewed`, and `evidence_cut
 `last_reviewed` is more than **90 days** old is flagged in [`ROADMAP.md`](ROADMAP.md) for re-verification.
 Sources change silently — that is precisely why every claim here is dated.
 
-Current snapshot: **12 research documents · 5 proposals · 27 open questions · 4 reproducible measurements ·
+Current snapshot: **13 research documents · 5 proposals · 27 open questions · 5 reproducible measurements ·
 last full review 2026-10-25**.
 
 ---

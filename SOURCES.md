@@ -144,15 +144,24 @@ Quoted as reported. This repository has **not** independently audited any of the
 | M-03 | RPC probe methodology (proposed, not yet run at scale) | See `PR-001` | planned | [`PR-001`](proposals/proposal-001-rpc-monitoring.md) |
 | M-04 | Mainnet and Testnet root properties: passphrases `Pi Network` / `Pi Testnet`; `current_protocol_version = 28` on both; `history_elder_ledger = 2` on both | Live `GET /` on S-60 and S-61 | 2026-10-25 | This repository · review pass |
 | M-05 | Build identifiers differ by network: Mainnet `horizon_version 28.0.1-a70eb47f76985d372de3e59f4d75c7f8542752f7`, `core_version stellar-core 28.0.1 (947aad8…)`; Testnet `horizon_version pi-horizon-28.0.1-d8f98fd`, `core_version v28.0.1` | Live `GET /` on S-60 and S-61 | 2026-10-25 | This repository · review pass |
+| M-06 | 1,000 newest Mainnet ledgers (sequences 29,405,159–29,406,158; closed 2026-10-25T20:11:50Z–21:35:05Z): 999/999 adjacent close intervals exactly 5 s; median = mean = p95 = p99 = min = max = 5 s; population stddev 0; 0 sequence gaps, 0 hash-link breaks, 0 non-positive or duplicate timestamps, 0 intervals ≥ 3× median. Dataset SHA-256 `871e35ea3d6bad4dc08ac87d3c3e96166a67b28e93b611b11440eacbb40c52e5`; header-XDR `closeTime` matched `closed_at` for oldest/middle/newest | `GET /ledgers?order=desc&limit=200` × 5 pages on S-60 with cursor pagination; `scripts/fetch-ledgers.mjs`, `scripts/ledger-cadence.mjs`, `scripts/verify-ledger-header.mjs`; dataset and manifest in [`data/ledger-cadence-2026-10-25/`](data/ledger-cadence-2026-10-25/) | 2026-10-25 | This repository · [`RES-013`](research/ledger-cadence.md) |
 
-`ANALYSIS` — M-01, M-02, M-04, and M-05 are reproducible by anyone with `curl`. They are the only measurements
-in this repository that meet the "a stranger can re-run it" bar. Everything else is either quoted or reasoned.
+`ANALYSIS` — M-01, M-02, M-04, M-05, and M-06 are reproducible by anyone with `curl` or Node.js. They are
+the only measurements in this repository that meet the "a stranger can re-run it" bar. For M-06, the committed
+JSONL reproduces the published statistics exactly; a fresh fetch deliberately produces a different window.
 
 > **What M-05 does and does not show.** It records the *strings the public endpoint reports*. Mainnet reports an
 > unbranded Horizon build and a `stellar-core` version string; Testnet reports a `pi-horizon` branded build. That
 > is consistent with, but not proof of, Mainnet running a build close to upstream Horizon. A build string can be
 > overridden, and nothing here observes consensus rules. Do not read this row as "Pi Mainnet is unmodified
 > Stellar" — only as "the public build identifiers differ between the two networks, in this direction".
+
+> **What M-06 does and does not show.** It records one 1.388-hour window, from one vantage point, using only
+> closed ledgers. The 5-second values are second-resolution ledger-header close times; sub-second jitter is
+> invisible, so "exactly 5 s" is exact at the resolution the ledger exposes, not a millisecond measurement.
+> The absence of gaps is a property of this sample, not a guarantee. M-06 does **not** measure transaction
+> inclusion latency, reorg probability, confirmation depth, Testnet cadence, or an SLA, and it does not prove
+> that every Pi ledger closes in 5 seconds. See [`RES-013`](research/ledger-cadence.md) §3.4 and §6.2.
 
 ---
 
@@ -187,6 +196,9 @@ Recorded so that no document quietly implies more certainty than exists.
 | Is the Launchpad live on Mainnet? | **No** at evidence cut-off; Testnet only per S-24 | Any Mainnet launch guidance would be premature |
 | How are node rewards computed for compute jobs? | **Not specified publicly**; S-29 says clients compensate nodes in Pi | Core to the economics in [`RES-007`](research/decentralized-compute.md) |
 | Do whitelisted app capabilities have published criteria? | **Not found** (S-32 says whitelisting is required) | Fairness of access to platform features |
+| Is the observed 5-second ledger cadence stable across days, upgrades, and incidents? | **Not established.** `M-06` covers one 1.388-hour window on 2026-10-25 | Any "normal lag" threshold or reliability claim needs a longer baseline |
+| Has a closed Pi ledger ever been replaced by a competing history? | **Not observed.** `M-06` sees only the canonical chain and cannot detect a reorg | Transaction-finality and confirmation-depth assumptions |
+| What confirmation depth should a Pi payment treat as final? | **Not found** in public docs; `M-06` measures cadence, not finality | Delivery timing and payment risk (`OQ-006`) |
 
 ---
 

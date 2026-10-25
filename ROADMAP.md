@@ -21,11 +21,11 @@ A document is not done when it is written. It is done when all four hold:
 | **G3 — Falsifiable** | Does it say what evidence would overturn it? | Unfalsifiable essays |
 | **G4 — Adoptable** | Could one developer act on it this month? | Research nobody can use |
 
-Documents meeting all four: **17 of 17** at initial publication. That is a claim about the *first draft*, not a
-permanent certificate: the 2026-10-25 review pass found seven corrections, including a mis-stated network
-passphrase in two documents, one mis-classified status, one wrong cross-reference, and one claim that promoted
-an ecosystem-token **design** to a live Mainnet feature. Sources also drift — which is what the review cycle
-below is for.
+Documents meeting all four: **18 of 18** after [`RES-013`](research/ledger-cadence.md) (17 of 17 at initial
+publication). That is a claim about the *first draft*, not a permanent certificate: the 2026-10-25 review pass
+found seven corrections, including a mis-stated network passphrase in two documents, one mis-classified status,
+one wrong cross-reference, and one claim that promoted an ecosystem-token **design** to a live Mainnet feature.
+Sources also drift — which is what the review cycle below is for.
 
 ---
 
@@ -38,7 +38,8 @@ below is for.
 | Repository structure, licence, disclaimer, code of conduct | **done** |
 | Claim taxonomy + labelling rules | **done** |
 | Pinned source registry ([`SOURCES.md`](SOURCES.md)) | **done** |
-| Twelve research documents (`RES-001`…`RES-012`) | **done** — all `draft` |
+| Twelve initial research documents (`RES-001`…`RES-012`) | **done** — all `draft` |
+| `RES-013` — ledger cadence, measured on 1,000 Mainnet ledgers | **done** — `draft`; dataset and scripts published |
 | Five proposals + template (`PR-001`…`PR-005`) | **done** — all `draft` |
 | [`.github`](.github) issue/PR templates | **done** |
 
@@ -48,7 +49,8 @@ Goal: turn `draft` into `review`, then `stable`, with at least one outside revie
 
 | Work item | Owner | Target | Status |
 |---|---|---|---|
-| Independent research-quality review of all 17 documents | maintainers | 2026-10-25 | **done** — six corrections; see change log |
+| Independent research-quality review of all 17 initial documents | maintainers | 2026-10-25 | **done** — seven corrections; see change log |
+| External re-run of `RES-013` cadence scripts | volunteer | 2026-11-15 | planned |
 | Open one public comment thread per document | maintainers | 2026-11-15 | planned |
 | Independent re-run of the RPC probe (`PR-001`) | volunteer | 2026-12-01 | planned |
 | Verify every `S-nn` row: does the URL still say what we claim? | volunteer | 2026-12-15 | planned |
@@ -62,6 +64,7 @@ Goal: replace prose with measurements where measurement is cheap.
 | Deliverable | Depends on | Notes |
 |---|---|---|
 | Public, self-hosted RPC probe + raw dataset | `PR-001` | Must publish raw JSON, not just a chart |
+| Ledger-cadence dataset + re-runnable fetch/compute scripts | `RES-013` | **Shipped** 2026-10-25; extend to 7 days before using it as a threshold |
 | `OpenAPI` description of the documented Platform API surface | `PR-002` | **Derived from public docs**, never from credentials |
 | Ecosystem directory schema + a validator script | `PR-003` | Schema only; no hosted service required |
 | Launch-disclosure JSON schema + example | `PR-004` | Aligned to `PiRC1` concepts; explicitly unofficial |
@@ -104,29 +107,34 @@ priority = impact × verifiability × adoptability
 | **Effort** | Days of work, including review | 1–5 (inverted) |
 
 Scores are recorded in the table below so that prioritisation is **arguable** rather than mysterious. The table
-is sorted by score, descending; equal scores share a rank, so the ranks are 1–16 with gaps at ties.
+is sorted by score, descending; equal scores share a rank, so rank values have gaps at ties.
 
 | ID | Document | Impact | Verif. | Adopt. | Effort | Score | Rank |
 |---|---|---|---|---|---|---|---|
 | `RES-006` | Security standards | 5 | 5 | 5 | 2 | 62.5 | 1 |
 | `PR-001` | RPC monitoring | 4 | 5 | 5 | 2 | 50.0 | 2 |
 | `RES-002` | RPC infrastructure study | 4 | 5 | 4 | 2 | 40.0 | 3 |
-| `RES-012` | Open questions | 3 | 4 | 5 | 2 | 30.0 | 4 |
-| `PR-002` | Developer standards | 4 | 5 | 4 | 3 | 26.7 | 5 |
-| `RES-005` | Missing developer tools | 4 | 4 | 4 | 3 | 21.3 | 6 |
-| `PR-004` | Launchpad transparency | 5 | 4 | 3 | 3 | 20.0 | 7 |
-| `RES-003` | Launchpad opportunities | 5 | 4 | 3 | 3 | 20.0 | 7 |
-| `PR-003` | Ecosystem directory | 4 | 4 | 4 | 4 | 16.0 | 9 |
-| `RES-008` | Open explorer | 3 | 4 | 4 | 4 | 12.0 | 10 |
-| `RES-004` | Ecosystem index | 4 | 3 | 3 | 5 | 7.2 | 11 |
-| `RES-009` | Community roadmap | 3 | 3 | 4 | 5 | 7.2 | 11 |
-| `RES-011` | Smart-contract ecosystem | 3 | 3 | 3 | 4 | 6.8 | 13 |
-| `RES-007` | Decentralized compute | 3 | 3 | 2 | 4 | 4.5 | 14 |
-| `PR-005` | Decentralized services | 3 | 3 | 2 | 4 | 4.5 | 14 |
-| `RES-010` | Ten-year scenarios | 3 | 2 | 3 | 4 | 4.5 | 14 |
+| `RES-013` | Ledger cadence (measured) | 4 | 5 | 4 | 2 | 40.0 | 3 |
+| `RES-012` | Open questions | 3 | 4 | 5 | 2 | 30.0 | 5 |
+| `PR-002` | Developer standards | 4 | 5 | 4 | 3 | 26.7 | 6 |
+| `RES-005` | Missing developer tools | 4 | 4 | 4 | 3 | 21.3 | 7 |
+| `PR-004` | Launchpad transparency | 5 | 4 | 3 | 3 | 20.0 | 8 |
+| `RES-003` | Launchpad opportunities | 5 | 4 | 3 | 3 | 20.0 | 8 |
+| `PR-003` | Ecosystem directory | 4 | 4 | 4 | 4 | 16.0 | 10 |
+| `RES-008` | Open explorer | 3 | 4 | 4 | 4 | 12.0 | 11 |
+| `RES-004` | Ecosystem index | 4 | 3 | 3 | 5 | 7.2 | 12 |
+| `RES-009` | Community roadmap | 3 | 3 | 4 | 5 | 7.2 | 12 |
+| `RES-011` | Smart-contract ecosystem | 3 | 3 | 3 | 4 | 6.8 | 14 |
+| `RES-007` | Decentralized compute | 3 | 3 | 2 | 4 | 4.5 | 15 |
+| `PR-005` | Decentralized services | 3 | 3 | 2 | 4 | 4.5 | 15 |
+| `RES-010` | Ten-year scenarios | 3 | 2 | 3 | 4 | 4.5 | 15 |
 
 > **The scores are `ANALYSIS`.** They are published so they can be disputed. A disagreement about a score is
 > a legitimate issue: state which cell is wrong and why.
+
+`ANALYSIS` — The table scores 17 of the 18 documents. [`RES-001`](research/pi-network-future.md) is the
+umbrella research document and is not in the execution queue; the rows above are the documents competing for
+attention. The 18 of 18 gate count in §0 includes it.
 
 `ANALYSIS` — Note what the ranking implies. Security and measurement outrank every "vision" document. That is
 intentional: a ten-year scenario is pleasant to write and hard to be wrong about in public, while a payment
@@ -138,7 +146,7 @@ verification checklist is unpleasant to write and immediately wrong in a useful 
 
 | Document class | Review interval | Trigger for early review |
 |---|---|---|
-| `FACT`-heavy (`RES-001`, `RES-002`, `RES-003`, `RES-011`) | **60 days** | Any new official blog post or protocol upgrade |
+| `FACT`-heavy (`RES-001`, `RES-002`, `RES-003`, `RES-011`, `RES-013`) | **60 days** | Any new official blog post, protocol upgrade, or dataset re-run |
 | Normative proposals (`PR-001`…`PR-005`) | **90 days** | Any implementation feedback |
 | Scenarios and vision (`VISION`, `RES-010`, `RES-009`) | **180 days** | A scenario's leading indicator flips |
 | Registry (`SOURCES`, `RES-012`) | **30 days** | Broken link, moved page, new RFC |
@@ -147,7 +155,7 @@ A document whose `last_reviewed` is overdue appears here until re-reviewed:
 
 | Document | Last reviewed | Due | Overdue? |
 |---|---|---|---|
-| All (initial publication) | 2026-10-25 | see class intervals | no |
+| All (initial publication + `RES-013`) | 2026-10-25 | see class intervals | no |
 
 ---
 
@@ -177,12 +185,12 @@ Recorded so that the scope does not creep by accident:
 
 ### Candidate studies (recorded before they exist)
 
-Per rule 3 above, work in progress is visible. These three are **candidates**: no author has committed, so they
-have no `RES-` ID yet. Each closes a gap identified in the 2026-10-25 review.
+Per rule 3 above, work in progress is visible. These two are **candidates**: no author has committed, so they
+have no `RES-` ID yet. Each closes a gap identified in the 2026-10-25 review. The first candidate from that
+list, ledger cadence, was accepted and published as [`RES-013`](research/ledger-cadence.md) on 2026-10-25.
 
 | Working title | Gap it closes | First step |
 |---|---|---|
-| Ledger cadence and finality on Pi | No public baseline for close intervals, so "lag" has no threshold | Sample 1,000 consecutive ledgers; publish the interval distribution |
 | Pi Horizon divergences from upstream Stellar | Unknown whether Stellar docs, SDKs, and indexers transfer (`M-05` is only a seed) | Build an endpoint/behaviour matrix for both networks |
 | PiRC1 allocation stress test | No public quantitative analysis of PiPower tiers, dilution, or liquidity locks | Simulate Design 1 and Design 2 under stated assumptions |
 
@@ -192,3 +200,4 @@ have no `RES-` ID yet. Each closes a gap identified in the 2026-10-25 review.
 |---|---|
 | 2026-10-25 | Initial roadmap: Phase 0 complete, Phases 1–3 planned |
 | 2026-10-25 | Review pass complete: `M-04`/`M-05` added; passphrase, node-status, ecosystem-token status, cross-reference and date corrections; three candidate studies recorded |
+| 2026-10-25 | `RES-013` published: 1,000-ledger cadence dataset, `M-06`, scripts and validation; candidate study converted to a document; priority table and counts updated |

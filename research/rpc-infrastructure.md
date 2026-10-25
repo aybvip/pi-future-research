@@ -99,6 +99,7 @@ retention period, and whether every ledger remains retrievable — or at what co
 |---|---|---|
 | Current ledger sequence | `GET /ledgers?order=desc&limit=1` | Public |
 | Ledger close time | Latest ledger's `closed_at` | Public |
+| Ledger close interval | `closed_at` differences across a contiguous range of `/ledgers` | One window measured in `M-06`; long-run variance still unknown |
 | `protocol_version` | `GET /` | Public (`M-01` observed `28`; `M-04` re-observed it) |
 | Earliest ingested ledger | `history_elder_ledger` in `GET /` | Says where ingestion starts, not that every ledger is retrievable |
 | Base fee / fee stats | `GET /fee_stats` | Public |
@@ -258,8 +259,10 @@ specification, the specification is wrong and the dashboard is decoration.
 3. What is the historical retention of `GET /ledgers`? `M-04` reports `history_elder_ledger = 2` on both
    networks — ingestion appears to start at the first ledger — but whether every ledger is retrievable, and at
    what cost, is untested. Affects any indexer design.
-4. What is a *normal* ledger close interval on Pi, and what variance is expected? Without a baseline, "lag" has
-   no threshold.
+4. What is a *normal* ledger close interval on Pi, and what variance is expected? `M-06` measured 999/999
+   intervals at 5 seconds at ledger-header resolution in one 1.388-hour window on 2026-10-25; see
+   [`RES-013`](ledger-cadence.md). The long-run distribution, incident behaviour, and sub-second timing remain
+   unknown, so "lag" still has no validated threshold.
 5. Is there a documented recommendation for client retry behaviour?
 6. Would an official status page be acceptable to operate, and by whom?
 
@@ -279,9 +282,12 @@ See [`RES-012`](open-questions.md).
 | `M-01` | `protocol_version = 28` via live read | Measurement | 2026-10-18 |
 | `M-04` | Passphrases, protocol 28, `history_elder_ledger = 2` | Measurement | 2026-10-25 |
 | `M-05` | Horizon/core build identifiers per network | Measurement | 2026-10-25 |
+| `M-06` | 1,000-ledger cadence dataset; 999/999 intervals = 5 s | Measurement | 2026-10-25 |
+| `RES-013` | Ledger cadence and finality | Research | 2026-10-25 |
 | `PR-001` | RPC monitoring standard | Proposal | 2026-10-25 |
 
 ---
 
 **Related:** [`RES-001`](pi-network-future.md) · [`RES-006`](security-and-trust.md) ·
-[`PR-001`](../proposals/proposal-001-rpc-monitoring.md) · [`SOURCES.md`](../SOURCES.md) §5
+[`RES-013`](ledger-cadence.md) · [`PR-001`](../proposals/proposal-001-rpc-monitoring.md) ·
+[`SOURCES.md`](../SOURCES.md) §5

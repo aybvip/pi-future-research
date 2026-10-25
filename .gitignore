@@ -19,13 +19,20 @@ __pycache__/
 .venv/
 venv/
 
-# Local data dumps — must never be committed
-data/
+# Local data dumps — must never be committed, except curated datasets explicitly
+# published as part of a study. A curated dataset is small, hashed in a manifest,
+# and is listed in SOURCES.md §3.
+data/*
 *.csv
 *.ndjson
 *.sqlite
 *.db
 !**/examples/**/*.csv
+
+# Published ledger-cadence dataset (RES-013) — curated, hashed, reproducible.
+!data/ledger-cadence-2026-10-25/
+!data/ledger-cadence-2026-10-25/**
+!data/ledger-cadence-2026-10-25/*.csv
 
 # Secrets — never commit these
 .env
