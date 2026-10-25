@@ -1,0 +1,45 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+*.swp
+*~
+
+# Node (only if reference scripts are added later)
+node_modules/
+npm-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Python (only if analysis notebooks are added later)
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Local data dumps — must never be committed
+data/
+*.csv
+*.ndjson
+*.sqlite
+*.db
+!**/examples/**/*.csv
+
+# Secrets — never commit these
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets/
+
+# Build output
+_site/
+dist/
+build/
+.cache/
+
+# Local notes
+NOTES.local.md

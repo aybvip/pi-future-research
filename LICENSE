@@ -1,0 +1,82 @@
+# License
+
+**Last reviewed:** 2026-10-25
+
+This repository uses a **split licence**: prose and diagrams are open for reuse with attribution; code
+snippets are open for reuse with almost no conditions.
+
+| Material | Licence | Canonical text |
+|---|---|---|
+| Prose, tables, diagrams, document structure (`*.md`) | **Creative Commons Attribution 4.0 International (CC BY 4.0)** | <https://creativecommons.org/licenses/by/4.0/legalcode> |
+| Code snippets, schemas, configuration examples | **MIT** | <https://opensource.org/license/mit> |
+
+Where a file contains both, the prose is CC BY 4.0 and the code excerpts are MIT. If that distinction is
+unclear for your use case, treat the whole file as CC BY 4.0 — it is the stricter of the two.
+
+---
+
+## CC BY 4.0 — what you may do
+
+You are free to:
+
+- **Share** — copy and redistribute the material in any medium or format.
+- **Adapt** — remix, transform, and build upon the material for any purpose, even commercially.
+
+Under the following terms:
+
+- **Attribution** — You must give appropriate credit, provide a link to the licence, and indicate if changes
+  were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses
+  you or your use.
+- **No additional restrictions** — You may not apply legal terms or technological measures that legally
+  restrict others from doing anything the licence permits.
+
+No warranties are given. The licence may not give you all of the permissions necessary for your intended
+use. For example, other rights such as publicity, privacy, or moral rights may limit how you use the
+material.
+
+### Attribution template
+
+```text
+Adapted from "pi-future-research" (https://github.com/aybvip/pi-future-research),
+licensed CC BY 4.0. Changes: <describe them>.
+```
+
+**Attribution must not imply** that this project, its contributors, Pi Network, SocialChain Inc., or the Pi
+Core Team endorses your use. See [`DISCLAIMER.md`](DISCLAIMER.md) §1.
+
+---
+
+## MIT — code snippets
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of the code snippets in this
+repository and associated documentation files (the "Software"), to deal in the Software without restriction,
+including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the
+following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions
+of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED
+TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF
+CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+DEALINGS IN THE SOFTWARE.
+
+---
+
+## Third-party material
+
+Quoted passages from official Pi Network publications remain the property of their authors and are used here
+for **criticism, comment, and research** with attribution and a link. They are **not** relicensed by this
+repository.
+
+"Pi", "Pi Network", and related marks belong to their respective owners. See
+[Pi's trademark guidelines](https://minepi.com/pi-trademark-guidelines/).
+
+---
+
+## Contributions
+
+By submitting a contribution you agree to license it under the terms above
+(CC BY 4.0 for prose, MIT for code) without additional terms. See [`CONTRIBUTING.md`](CONTRIBUTING.md) §10.

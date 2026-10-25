@@ -1,0 +1,7 @@
+# Normalise to LF so that diffs are stable across Windows, macOS and Linux.
+* text=auto eol=lf
+
+# Binary artefacts, if any are ever added.
+*.png binary
+*.jpg binary
+*.pdf  binary
