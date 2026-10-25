@@ -7,6 +7,9 @@
  * Usage:
  *   node scripts/fetch-ledgers.mjs [--network mainnet|testnet] [--count 1000] [--out DIR]
  *
+ *   --out DIR   output directory (default: data/ledger-cadence-<UTC date>).
+ *               Existing files in DIR are overwritten; use a new DIR for a replication.
+ *
  * Output:
  *   <DIR>/ledgers.jsonl   one JSON object per line, newest first, selected fields only
  *   <DIR>/manifest.json   collection window, endpoint, count, first/last sequence, SHA-256

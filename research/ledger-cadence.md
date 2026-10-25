@@ -448,15 +448,19 @@ one. Step 7 is the first step that can say anything about a *distribution* rathe
 **Reproduce**
 
 ```bash
-node scripts/fetch-ledgers.mjs --network mainnet --count 1000
-node scripts/ledger-cadence.mjs --dir data/ledger-cadence-2026-10-25
+# Fresh replication: write to a new, ignored directory; never overwrite the committed evidence.
+node scripts/fetch-ledgers.mjs --network mainnet --count 1000 --out data/ledger-cadence-replication
+node scripts/ledger-cadence.mjs --dir data/ledger-cadence-replication
+
+# Re-check the committed sample against the live ledger headers.
 node scripts/verify-ledger-header.mjs --dir data/ledger-cadence-2026-10-25 \
-  --out data/ledger-cadence-2026-10-25/header-xdr-check.json
+  --out data/header-xdr-check-replication.json
 ```
 
 `ANALYSIS` — A re-run will collect a different 1,000-ledger window, so its hashes and bounds will differ by
 design. Compare the statistics, not the file hash. The committed window is the evidence for the numbers
-above; a fresh run is a replication, not an overwrite.
+above; a fresh run is a replication, not an overwrite. The example writes to an ignored path so the committed
+dataset is left untouched.
 
 ---
 
