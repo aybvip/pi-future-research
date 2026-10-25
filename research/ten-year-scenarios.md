@@ -77,7 +77,7 @@ The starting conditions, as of the evidence cut-off. These are the `FACT`s the s
 | Nodes | "420,000+" runners (official claim) | `S-31` | Utilisation beyond chain support is new |
 | Payments | Live platform payments; chain is settlement | `S-06`, `S-04` | Merchant adoption unmeasured |
 | Contracts | Soroban, first capability on Testnet | `S-26` | Mainnet timing and audit outcome |
-| Tokens | Ecosystem tokens on Mainnet; Launchpad on Testnet | `S-23`, `S-24` | Launchpad Mainnet design may change |
+| Tokens | Ecosystem-token design published; Launchpad on Testnet | `S-23`, `S-24` | Launchpad Mainnet design may change |
 | Tooling | Docs consolidated; App Studio; SoloHost beta | `S-01`, `S-30`, `S-31` | Whether tools reduce failure rates |
 | Compute | 5-node PoC | `S-29` | Verification and economics unspecified |
 | External access | CEX/onramp integrations since Open Network | `S-20` | Regulatory variation by jurisdiction |
@@ -282,7 +282,7 @@ See [`RES-012`](open-questions.md).
 | `S-06` | Platform payments | Official | pinned 2024-08-28 |
 | `S-11` | 60+ million Pioneers | Official | retrieved 2026-10-25 |
 | `S-20` | Open Network; CEX/onramp integration | Official | 2025-02-20 |
-| `S-23` | Ecosystem tokens on Mainnet | Official | 2026-02-20 |
+| `S-23` | Ecosystem-token design for Mainnet | Official | 2026-02-20 |
 | `S-24` | Launchpad / DEX on Testnet | Official | 2026-03-19 |
 | `S-26` | Contracts on Testnet | Official | 2026-04-17 |
 | `S-29` | Compute PoC (5 nodes) | Official | 2026-08-14 |

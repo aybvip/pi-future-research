@@ -165,7 +165,7 @@ A compressed, dated snapshot. Full quotes and pins are in [`SOURCES.md`](SOURCES
 | # | Fact | Source | Date |
 |---|---|---|---|
 | 1 | Open Network launched; Enclosed-Network firewall removed; CEX/onramp integrations enabled | [Pi blog](https://minepi.com/blog/open-network/) | launch 2025-02-20 (post dated 2025-02-19) |
-| 2 | Ecosystem token design released on Mainnet, on Open Network's first anniversary | [Pi blog](https://minepi.com/blog/pi-launchpad/) | 2026-02-20 |
+| 2 | Ecosystem-token **design** for Mainnet published on Open Network's first anniversary — a PiRC, not a live launch | [Pi blog](https://minepi.com/blog/open-network-anniversary/#ecosystem-token-design-mainnet) | 2026-02-20 |
 | 3 | `PiRC1` (Ecosystem Token Design / Launchpad) and `PiRC2` (Subscription Contract API) published as **RFCs** | [PiNetwork/PiRC](https://github.com/PiNetwork/PiRC) | 2026-02-20 · 2026-04-17 |
 | 4 | First smart-contract capability (subscriptions, Soroban) on **Testnet**, under external audit | [Pi blog](https://minepi.com/blog/subscriptions-smart-contract) | 2026-04-17 |
 | 5 | Launchpad initial version released as a Pi App on **Testnet** with a test token | [Pi blog](https://minepi.com/blog/pi-launchpad/) | 2026-03-19 |
@@ -183,9 +183,11 @@ Two of these deserve a warning label:
   not line up cleanly with `protocol_version = 28` reads on 2026-10-18 and 2026-10-25. Treat the completion
   *date* as unconfirmed. The safe statement is: *protocol 28 has been observable on Mainnet since at least
   2026-10-18.*
-- **#2 / #5** — "released" means *shipped to a network or storefront*, not *feature-complete*. The Launchpad
+- **#5** — "released" means *shipped to a network or storefront*, not *feature-complete*. The Launchpad
   is on Testnet and its Mainnet status was still pending at the evidence cut-off. Do not read "released" as
   "live for users' money".
+- **#2** — a **design** published as an RFC is not a live token launch. The anniversary post describes the
+  ecosystem-token design and the path to enabling creation on Mainnet; it does not show tokens trading there.
 
 ---
 

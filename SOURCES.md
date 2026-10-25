@@ -71,7 +71,7 @@ sha256sum mica.pdf
 | S-20 | Open Network launch | <https://minepi.com/blog/open-network/> | post dated 2025-02-19 · launch 2025-02-20 | Firewall removed; CEX/onramp integrations; node Mainnet transition by invitation |
 | S-21 | Open Network launch date | <https://minepi.com/blog/open-network-launch-date/> | 2025-02 | Enclosed-Network firewall definition |
 | S-22 | Mainnet migrations roadmap & tokenomics | <https://minepi.com/blog/mainnet-migrations-roadmap-and-tokenomics/> | `unpinned` | Migration stages |
-| S-23 | Ecosystem token design on Mainnet | <https://minepi.com/blog/open-network-anniversary/#ecosystem-token-design-mainnet> | 2026-02-20 | Ecosystem tokens live on Mainnet |
+| S-23 | Ecosystem token design on Mainnet | <https://minepi.com/blog/open-network-anniversary/#ecosystem-token-design-mainnet> | 2026-02-20 | Ecosystem-token **design** published as a PiRC; not evidence that tokens are live |
 | S-24 | **Pi Launchpad released on Testnet** | <https://minepi.com/blog/pi-launchpad/> | 2026-03-19 | Launchpad mechanism; proceeds → liquidity; Pi DEX on Testnet; Mainnet version pending |
 | S-25 | Pi Day 2026 releases | <https://minepi.com/blog/pi-day-2026/> | 2026-03-14 | Launchpad introduction; 7th anniversary |
 | S-26 | First smart contract: subscriptions | <https://minepi.com/blog/subscriptions-smart-contract> | 2026-04-17 | Soroban; Testnet-first; external audit |

@@ -22,9 +22,10 @@ A document is not done when it is written. It is done when all four hold:
 | **G4 — Adoptable** | Could one developer act on it this month? | Research nobody can use |
 
 Documents meeting all four: **17 of 17** at initial publication. That is a claim about the *first draft*, not a
-permanent certificate: the 2026-10-25 review pass found six corrections, including a mis-stated network
-passphrase in two documents, one mis-classified status, and one wrong cross-reference. Sources also drift —
-which is what the review cycle below is for.
+permanent certificate: the 2026-10-25 review pass found seven corrections, including a mis-stated network
+passphrase in two documents, one mis-classified status, one wrong cross-reference, and one claim that promoted
+an ecosystem-token **design** to a live Mainnet feature. Sources also drift — which is what the review cycle
+below is for.
 
 ---
 
@@ -190,4 +191,4 @@ have no `RES-` ID yet. Each closes a gap identified in the 2026-10-25 review.
 | Date | Change |
 |---|---|
 | 2026-10-25 | Initial roadmap: Phase 0 complete, Phases 1–3 planned |
-| 2026-10-25 | Review pass complete: `M-04`/`M-05` added; passphrase, node-status, cross-reference and date corrections; three candidate studies recorded |
+| 2026-10-25 | Review pass complete: `M-04`/`M-05` added; passphrase, node-status, ecosystem-token status, cross-reference and date corrections; three candidate studies recorded |

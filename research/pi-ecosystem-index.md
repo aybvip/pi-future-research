@@ -151,7 +151,7 @@ Four rules do all the work.
 | L5 | Distributed compute | capability | `poc` | `S-29` |
 | L6 | PiRC1 Launchpad | mechanism | `live-testnet` | `S-24` |
 | L6 | Pi DEX | mechanism | `live-testnet` | `S-24` |
-| L6 | Ecosystem tokens | asset class | `live-mainnet` | `S-23` |
+| L6 | Ecosystem-token design (PiRC1) | mechanism | `rfc` | `S-23` |
 | L6 | Pi Network Ventures | programme | `live-mainnet` | `S-38` |
 | L7 | KYB verified businesses | product | `live-mainnet` | `S-37` |
 | L7 | Smart-contract audit (subscription) | process | `unverified` | `S-26` |
@@ -251,7 +251,7 @@ See [`RES-012`](open-questions.md).
 | `S-11` | Developer landing page | Official | retrieved 2026-10-25 |
 | `S-13` | PiOS registry | Official | retrieved 2026-10-25 |
 | `S-20` | Open Network launch; node Mainnet transition by invitation | Official | 2025-02-20 |
-| `S-23` | Ecosystem tokens on Mainnet | Official | 2026-02-20 |
+| `S-23` | Ecosystem-token design for Mainnet | Official | 2026-02-20 |
 | `S-24` | Launchpad on Testnet; DEX on Testnet | Official | 2026-03-19 |
 | `S-26` | Subscription contract + audit status | Official | 2026-04-17 |
 | `S-27` | Directory staking and ranking | Official | 2026-06-18 |

@@ -88,7 +88,7 @@ arrive on their own cadence; legibility does not arrive unless someone builds it
 | Pi Launchpad | **Testnet only**; Mainnet version pending | `S-24` |
 | Subscription smart contract | **Testnet**; external audit in progress; Mainnet rollout pending | `S-26`, `S-55` |
 | Pi DEX | **Testnet** | `S-24` |
-| Ecosystem tokens on Mainnet | Released 2026-02-20 (design + tokens); Launchpad path to issue them is still Testnet | `S-23`, `S-24` |
+| Ecosystem-token design for Mainnet | Design published 2026-02-20 as a PiRC; the Launchpad path to issue tokens is still Testnet | `S-23`, `S-24` |
 | Distributed compute | PoC complete with 5 Nodes; no published production service | `S-29`, `S-34` |
 | PiRC1 / PiRC2 | **Requests for Comment** — open to change | `S-52`, `S-53`, `S-54` |
 
@@ -277,7 +277,7 @@ Full register: [`RES-012`](open-questions.md).
 | `S-04` | Advanced payments (A2U) | Official | retrieved 2026-10-25 |
 | `S-06` | Platform API `PaymentDTO` | Official | pinned 2024-08-28 |
 | `S-09` | `@pinetwork/pi-sdk-js@2.0.0` | Official | 2026-03-19 |
-| `S-23` | Ecosystem tokens on Mainnet | Official | 2026-02-20 |
+| `S-23` | Ecosystem-token design for Mainnet | Official | 2026-02-20 |
 | `S-24` | Launchpad on Testnet | Official | 2026-03-19 |
 | `S-26` | First smart contract (Testnet) | Official | 2026-04-17 |
 | `S-27` | Ecosystem directory staking | Official | 2026-06-18 |

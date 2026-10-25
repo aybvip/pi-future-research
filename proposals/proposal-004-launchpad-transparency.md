@@ -292,7 +292,7 @@ version and keep the previous version valid for existing disclosures.
 
 | # | Source | Type | Date |
 |---|---|---|---|
-| `S-23` | Ecosystem tokens on Mainnet | Official | 2026-02-20 |
+| `S-23` | Ecosystem-token design for Mainnet | Official | 2026-02-20 |
 | `S-24` | Launchpad on Testnet; design subject to change | Official | 2026-03-19 |
 | `S-52` | PiRC process | Official (RFC) | retrieved 2026-10-25 |
 | `S-53` | PiRC1 — proceeds to liquidity; PiPower baseline | Official (RFC) | pinned 2026-02-20 |

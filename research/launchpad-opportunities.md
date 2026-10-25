@@ -77,7 +77,7 @@ There is a second problem specific to this design. Because proceeds become liqui
 | Release | Initial version as a Pi App on **Testnet**, with a test token | `S-24` | 2026-03-19 |
 | Mainnet | Pending at evidence cut-off; design "subject to change" | `S-24` | pending |
 | DEX | Exists on **Testnet** | `S-24` | Testnet |
-| Ecosystem tokens | Design released on Mainnet, 2026-02-20 | `S-23` | live |
+| Ecosystem tokens | Design for Mainnet published as a PiRC on 2026-02-20; token creation on Mainnet not enabled at evidence cut-off | `S-23` | RFC |
 
 > **Read the status column, not the prose.** Every mechanism above is an RFC or a Testnet behaviour. A
 > document that cites it as settled Mainnet behaviour would be wrong, and this repository will not do that.
